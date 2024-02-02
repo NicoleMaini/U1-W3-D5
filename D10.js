@@ -133,11 +133,11 @@ const splitMe = (string) => {
 
 console.log("Es 3:", splitMe("Sto frequentando un corso Epicode"));
 
+
 /* ESERCIZIO 4
   Crea una funzione chiamata "deleteOne" che riceve una stringa e un booleano come parametri.
   Se il valore booleano è true la funzione deve ritornare la stringa senza il primo carattere, altrimenti la deve ritornare senza l'ultimo.
 */
-
 
 const deleteOne = (string, booleanValue) => {
   if(booleanValue === true){
@@ -155,7 +155,6 @@ console.log("Es 4:", deleteOne("Sono una stringa zoppa", true))
 
   Es.: onlyLetters("I have 4 dogs") => ritorna "I have dogs"
 */
-
 
 // const onlyLetters = (string) => { 
 //   let wordsArray = []
@@ -183,6 +182,7 @@ const isThisAnEmail = (string)=>{
 }
 
 isThisAnEmail("epicode@intoepicode.com")
+
 
 /* ESERCIZIO 7
   Scrivi una funzione chiamata "whatDayIsIt" che ritorna il giorno della settimana corrente.
@@ -377,8 +377,6 @@ const movies = [
 ]
 
 
-
-
 // NOTA: l'array "movies" usato in alcuni esercizi è definito alla fine di questo file
 
 /* ESERCIZIO 11
@@ -416,17 +414,15 @@ for (let i = 0; i < array.length; i++){
 newestMovie(movies);
 
 
-
 /* ESERCIZIO 13
   Scrivi una funzione chiamata countMovies che ritorna il numero di film contenuti nell'array "movies" fornito.
 */
-console.log(movies);
 
-const countMovies = () => {
-  return movies.length
+const countMovies = (array) => {
+  return array.length
 }
 
-console.log("Es 13:", countMovies());
+console.log("Es 13:", countMovies(movies));
 
 
 /* ESERCIZIO 14
@@ -440,6 +436,7 @@ const onlyTheYears = (array) => {
 }
 
 console.log("Es 14:", onlyTheYears(movies));
+
 
 /* ESERCIZIO 15
   Scrivi una funzione chiamata "onlyInLastMillennium" che ritorna solamente i film prodotto nel millennio scorso contenuti nell'array "movies" fornito.
@@ -475,6 +472,7 @@ for (let i = 0; i < array.length; i++){
   }
 
 console.log("Es 16:", sumAllTheYears(movies))
+
 
 /* ESERCIZIO 17
   Scrivi una funzione chiamata "searchByTitle" che riceve una stringa come parametro e ritorna i film nell'array "movies" fornito che la contengono nel titolo.
@@ -514,6 +512,7 @@ const searchAndDivide = (array, string) => {
 }
 searchAndDivide(movies, "lord")
 
+
 /* ESERCIZIO 19
   Scrivi una funzione chiamata "removeIndex" che riceve un numero come parametro e ritorna l'array "movies" fornito privo dell'elemento nella posizione ricevuta come parametro.
 */
@@ -533,32 +532,89 @@ console.log(removeIndex(movies, 6));
 /* ESERCIZIO 20
   Scrivi una funzione per selezionare l'elemento dotato di id "container" all'interno della pagina.
 */
+const idContainer = () => {
+  const container = document.getElementById("container")
+  console.log("Es 20:", container.innerText)
+}
 
+idContainer();
 
 
 /* ESERCIZIO 21
   Scrivi una funzione per selezionare ogni tag <td> all'interno della pagina.
 */
 
+const td = () => {
+  const tdTable = document.getElementsByTagName("td")
+  console.dir(tdTable)
+  console.log("Es 21:", tdTable[0].innerText)
+}
+
+td()
+
+
 /* ESERCIZIO 22
   Scrivi una funzione che, tramite un ciclo, stampa in console il testo contenuto in ogni tag <td> all'interno della pagina.
 */
+
+const stampTd = () => {
+  const tdTable = document.querySelectorAll("td")
+  tdTable.forEach(td => {console.log(td.innerText)})
+}
+
+stampTd()
+
 
 /* ESERCIZIO 23
   Scrivi una funzione per aggiungere un background di colore rosso a ogni link all'interno della pagina.
 */
 
+const backgRed = () => {
+  const allLinkInThePage = document.querySelectorAll("a")
+  allLinkInThePage.forEach((a) => a.classList.add("backg-color"))
+    
+  }
+
+backgRed()
+
+
 /* ESERCIZIO 24
   Scrivi una funzione per aggiungere un nuovo elemento alla lista non ordinata con id "myList".
 */
+
+const addLi = () => {
+  const ul = document.getElementById("myList")
+  const li = document.createElement("li")
+  li.innerText = "Element 4"
+  ul.appendChild(li)
+}
+
+addLi()
+
 
 /* ESERCIZIO 25
   Scrivi una funzione per svuotare la lista non ordinata con id "myList".
 */
 
+const toEmptyUl = () => {
+  const ul = document.querySelectorAll("#myList")
+  ul.forEach((li) => li.remove())
+}
+
+toEmptyUl()
+
+
 /* ESERCIZIO 26
   Scrivi una funzione per aggiungere ad ogni tag <tr> la classe CSS "test"
 */
+
+const addClassTextInTr = () => {
+  const tr = document.querySelectorAll("tr")
+  tr.forEach((tr) => tr.classList.add("test"))
+}
+
+addClassTextInTr()
+
 
 // [EXTRA] JS Avanzato
 
@@ -573,6 +629,19 @@ console.log(removeIndex(movies, 6));
   ***
 
 */
+const halfTree = (number) =>{
+
+  for (let i = 1; i <= number; i++) {
+    let row = "";
+    for (let n = 1; n <= i; n++) {
+     row += "* ";
+    }
+    console.log(row);
+  }
+}
+
+halfTree(5)
+
 
 /* ESERCIZIO 28
   Crea una funzione chiamata "tree" che riceve un numero come parametro e costruisce un albero di "*" (asterischi) dell'altezza fornita.
@@ -586,9 +655,34 @@ console.log(removeIndex(movies, 6));
 
 */
 
+// const tree = (number) =>{
+
+//   for (let i = 1; i <= number; i++) {
+//     let row = "";
+//     for (let n = 1; n <= i; n++) {
+//      row += " * "
+//     }
+//     console.log(row);
+//   }
+// }
+
+// tree(5)
+
 /* ESERCIZIO 29
   Crea una funzione chiamata "isItPrime" che riceve un numero come parametro e ritorna true se il numero fornito è un numero primo.
 */
 
+// const isItPrime = (number) => {
+//   for(let i = 0; i < number; i++){
+//   if ((number/i) === 1 || (number/i) === number && (number/i) !== i){
+//   console.log("Es 29: true");
+//   } else {
+//   console.log("Es 29: false");
+//   }
+//   }
+// }
+
+// isItPrime(5)
+ 
 /* Questo array viene usato per gli esercizi. Non modificarlo. */
 
