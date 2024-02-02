@@ -156,21 +156,20 @@ console.log("Es 4:", deleteOne("Sono una stringa zoppa", true))
   Es.: onlyLetters("I have 4 dogs") => ritorna "I have dogs"
 */
 
-// const onlyLetters = (string) => { 
-//   let wordsArray = []
-//   const words = string.split(" ")
-//   wordsArray.push(words)
-//   console.log(wordsArray);
-//   for(let i = 0; i < wordsArray.length; i++){
-//     if(wordsArray[i] == "number"){
-//       wordsArray = wordsArray - wordsArray[i]
-//       console.log(wordsArray);
-//     }
-//     return wordsArray.join(" ");
-//   }
+const onlyLetters = (string) => { 
+  let words = string.split(" ")
+  const phrase = []
+  console.log(words);
+  for(let i = 0; i < words.length; i++){
+    if(isNaN(parseInt(words[i]))){
+      phrase.push(words[i])
+    }
+  }
+  return phrase.join(" ")
+}
+console.log("Es 5:", onlyLetters("Ho 2 cani e 3 gatti"));
 
-// }
-// console.log("Es 5:", onlyLetters("Ho 2 cani e 3 gatti"));
+// corretto, a mia discolpa però dico che l'avevo pensata (un po' maccheronica) ma non ho avuto il tempo di metterla in pratica... eh pazienza :'()
 
 
 /* ESERCIZIO 6
